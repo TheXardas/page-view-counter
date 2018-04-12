@@ -8,7 +8,7 @@ after_success:
 - docker -v
 - pip install --user awscli
 - export PATH=$PATH:$HOME/.local/bin
-- eval $(aws ecr get-login --region us-east-2)
+- eval $(aws ecr get-login --no-include-email --region us-east-2 | sed 's|https://||')
 - docker-compose build
 - docker tag xardas/pageviewcounter:latest 343003467389.dkr.ecr.us-east-2.amazonaws.com/xardas/pageviewcounter:latest
 - docker push 343003467389.dkr.ecr.us-east-2.amazonaws.com/xardas/pageviewcounter:latest
