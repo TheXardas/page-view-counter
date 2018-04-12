@@ -1,11 +1,14 @@
-node1:
-  build: .
-  links:
-    - redis
-  ports:
-    - "8080:8080"
+version: '3'
+services:
+  node1:
+    build: .
+    links:
+      - redis
+    ports:
+      - "8080:8080"
+    image: xardas/pageviewcounter
 
-redis:
-  image: redis
-  ports:
-    - "6379:6379"
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
