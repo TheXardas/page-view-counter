@@ -3,13 +3,12 @@ nodejs:
 - '8'
 services:
 - docker
-before_install:
+after_success:
 - docker -v
 - pip install --user awscli
 - export PATH=$PATH:$HOME/.local/bin
-script:
 - eval $(aws ecr get-login --region us-east-2)
-- docker-compose build
+- docker-compose build -t xardas/pageviewcounter .
 - docker tag xardas/pageviewcounter:latest 343003467389.dkr.ecr.us-east-2.amazonaws.com/xardas/pageviewcounter:latest
 - docker push 343003467389.dkr.ecr.us-east-2.amazonaws.com/xardas/pageviewcounter:latest
 env:
