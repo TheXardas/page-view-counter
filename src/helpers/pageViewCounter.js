@@ -1,4 +1,5 @@
 import RedisMetrics from 'redis-metrics';
+import config from '../config';
 
 export default {
     counterInstance: null,
@@ -7,8 +8,8 @@ export default {
         if (!this.counterInstance) {
             // lazy-setting up a counter instance, so we won't set up a connection, when not needed.
             const metrics = new RedisMetrics({
-                host: 'redis',
-                port: '6379',
+                host: config.redis.host,
+                port: config.redis.port,
             });
 
             metrics.client.on('error', (err) => {

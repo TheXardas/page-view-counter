@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/index.js",
+    "start": "REDIS_HOST=127.0.0.1 babel-node src/index.js",
     "build": "BABEL_ENV=production babel src -d dist;",
     "serve": "node dist/index.js",
     "test": "mocha --require babel-core/register"
