@@ -1,7 +1,19 @@
 language: node_js
 nodejs:
-  - "8"
+- '8'
 services:
-  - redis
+- docker
+before_install:
+- pip install --user awscli
+- export PATH=$PATH:$HOME/.local/bin
+script:
+- eval $(aws ecr get-login --region us-east-2)
+- docker-compose build
+- docker tag xardas/pageviewcounter:latest 343003467389.dkr.ecr.us-east-2.amazonaws.com/xardas/pageviewcounter:latest
+- docker push 343003467389.dkr.ecr.us-east-2.amazonaws.com/xardas/pageviewcounter:latest
 env:
+  matrix:
   - REDIS_HOST=127.0.0.1
+  global:
+  - secure: HmSIqi4ijzDFC80a+LtOheI3O3AnA92a616r5XiCxBDLzn9euaRZjSF/Z/rXjeHtWhuAX5mKmx6WXXC47hiP9iSpsakqNkuk0ZW6pSTa4NeI+qpSe+qrrMqk7zOQfj2Q/hMDuHZ3+9kRot1te4IS1EHR8qiEAI6Bjzl068YcK9aOB6ZeKT6+E2adJKi7yG6n9zp7sE8k3O5HtzPlFC46SrRVrV61Prjn+Tv8H8jnq3glxPGVwf9NcxUDCLJubc/dv3qTov2fhLbgrdV2XNz39n/sErirDuWauF27Myhp9lxkjlT9muhVPk/XoVhWZwGRJ7jN5+f5ZukOKhz8thNwcUBo6VG9ryKRiEYExU7at21JdBjIEXnXRm6GR++vsVroaUKSGOjf9k5QRYSqQa01rz6bDEWYljvgVcBQ+PaXUGNi0IX5ji2NRoF2sn+w01QaneLHcHZJqQhOAiyKrMQJcufvx5FV+ym6YhPsVOnanrwn6VDVAeMGCa1PdUlf71nydhQY2R4PYqN03np+G7jclu8Lv5fqguvE3zs7xrs4Av7txaDyCbqRgFoXf72FUarArsJmOwHqEzqa4vSW164/FfV0XvSrb55SVLH7z+xEtGdGhsr0Q2BTNm9PGqYkLZoiKd5E9qh6yVVuFvoGt/Mj2Q+eqY2N6SxWcMOTfdgkXes=
+  - secure: CACTdHf8J3Uc0p05Uuz1sxQFnTxVh9EqmEJSYN1oM1yKgxgBu6PpzUyNH/UlY0+WF4UROr02fGx2HP5yn+WG+2hxrxYwyiZeU5qQjOaQMcl2H82pwtsyWCDkexqICzAmi0yWjX8Pr7flIstQr4HgN6ux+W9nvtw/rsgEUvQuEDdQYTS4eshr7mKlGuE2Ql/aDmm+cTRPG1P+sCViq2u6MJ0dVLffK50Tdbhz9FvIud4VY5jGx2rtQIoqissQSQ4ANqC+syte+75VxhBZaCSqbdYczsliGITq+ZAQ07j+MjotfnHmbR1aeoSFfOX1JVrv7GfBS2UYPQdKhpXGSGn5wFHEHrsoFBfwV3u7ehpdrbWab8HcI5STc1JFY37TG5T3T5HW/7v9Go3jmo+IX0pl0Zeax7U5R3lOV+Qqo4xkfM9neldz2XlUBR66ueJZglSrGxEV26DioxJchetcalt8zIjP2Xl6+6OrLNRJZ92fUmOJQckwsykwusIE5Jmb61FdlYp9Kw+10y3CL5eJy7AsQmlQi5XT4+9d0FaZrmTck9/kFhwLDYnT+HfvB4uruN+FEpHbjrw/ep4em8LUlc9yQwad6SqzX/P9LEISjzSd6tr+DdqZaHQEzr3lsiDdNCpKUOAtc5mvL7dn0GhXrxVUxZDynk7taXyJR7wnYSXfCWU=

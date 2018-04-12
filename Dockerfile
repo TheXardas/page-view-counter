@@ -1,8 +1,7 @@
 FROM mhart/alpine-node AS builder
 WORKDIR /usr/src/page-view-counter-app
 COPY . .
-RUN npm install
-RUN npm run build
+RUN npm install && npm run build
 
 FROM builder AS dependencies
 WORKDIR /usr/src/page-view-counter-app
