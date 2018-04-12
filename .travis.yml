@@ -3,6 +3,7 @@ nodejs:
 - '8'
 services:
 - docker
+- redis
 after_success:
 - docker -v
 - pip install --user awscli
