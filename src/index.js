@@ -7,6 +7,8 @@ const { host, port } = config;
 runServer(host, port, (req, res) => {
     pageViewCounter.incr();
     return pageViewCounter.getLastMinuteCount().then(count => {
-        return `Hello World! Current page view count is ${count}`;
+        return `Hello World! Current page view count is ${count}.
+            Instance: ${config.containerName}
+        `;
     });
 });

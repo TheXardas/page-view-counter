@@ -6,4 +6,5 @@ export default {
         // REDIS_PORT is busy by docker redis image, and it is not actually a port
         port: process.env.REDIS_CUSTOM_PORT || '6379',
     },
+    containerName: process.env.CONTAINER_NAME || 'local',
 }
