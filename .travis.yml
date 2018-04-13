@@ -12,6 +12,7 @@ after_success:
 - docker-compose build
 - docker tag xardas/pageviewcounter:latest 343003467389.dkr.ecr.us-east-2.amazonaws.com/xardas/pageviewcounter:latest
 - docker push 343003467389.dkr.ecr.us-east-2.amazonaws.com/xardas/pageviewcounter:latest
+- eval $(aws ecs update-service --cluster page-view-counter-cluster --service page-view-counter-service --force-new-deployment)
 env:
   matrix:
   - REDIS_HOST=127.0.0.1
