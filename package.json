@@ -24,6 +24,7 @@
     "mocha": "^5.0.5"
   },
   "dependencies": {
+    "ip": "^1.1.5",
     "redis-metrics": "^1.2.0"
   }
 }
