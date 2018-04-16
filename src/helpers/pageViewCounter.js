@@ -1,7 +1,6 @@
 import RedisMetrics from 'redis-metrics';
 import config from '../config';
 
-// TODO write a mock and implement DI for testing
 export default {
     counterInstance: null,
 

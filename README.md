@@ -78,7 +78,7 @@ Final image size is **~58MB**.
 
 There is also a **docker-compose.yml** file, to build application with **redis** image to make it working right away.
 
-#### CI
+### Continuous Integration
 Application uses **Travis-CI** for building and deploying.
 
 Build can be accessed [here](https://travis-ci.org/TheXardas/page-view-counter).
@@ -87,7 +87,7 @@ All sensitive data are secured with **travis encrypt** feature.
 
 All CI-settings are **code-aware** by storing **.travis.yml** file in the root of the project.
 
-#### AWS
+### Amazon Web Services
 App is deployed in **Amazon Web Services**, using **Elastic Container Service**. CI deploys image to AWS private docker container repository, and then triggers service update.
 
 It is set up to be load-balanced, scalable and zero-time downtime microservice. **Application Load Balancer** is used.
@@ -96,7 +96,7 @@ App can be opened [here](http://page-view-counter-alb-2108592093.us-east-2.elb.a
 
 **Instance** is written there to test load-balancer. If you try refreshing a bunch of times real quick, you'll see, that ALB changes instance used to serve request.
 
-#### TODO
+### TODO
 It is just a test task, so there is **lots** of stuff to improve:
 
 - Write more tests
