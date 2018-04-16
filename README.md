@@ -32,11 +32,20 @@ And then open http://localhost:8080
 
 Make sure, that you have **redis** server up and running locally, to start. Tests does not require redis, since connection is **mocked with sinon**.
 
+To **build and run app in production mode** run:
+```
+npm install
+npm run build
+npm run serve
+```
+This will build app into the **dist** directory and run it.
+
 If you don't want to pollute your system with any redis servers, you can just run with **docker-compose**:
 ```
 docker-compose up
 ```
 This will build app in production mode with deploying redis image.
+
 
 To deploy a new version of an app to production, just make a push to master branch of this repo. But, hey, that is not allowed ;)
 
