@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "ip": "^1.1.5",
-    "redis-metrics": "^1.2.0"
+    "redis-metrics": "^1.2.0",
+    "request": "^2.85.0"
   }
 }
