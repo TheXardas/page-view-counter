@@ -105,3 +105,4 @@ It is just a test task, so there is **lots** of stuff to improve:
 - Create a ping-endpoint for amazon healthcheck service (it uses a root, thus incrementing page view count as a side-effect).
 - Write own implementation of RedisMetrics's increment, so no need to import whole library in production app.
 - Improve configuration system, to not store connection strings in a repo
+- Set up monitoring, in case of deploy failure or production errors.
