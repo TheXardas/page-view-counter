@@ -40,6 +40,8 @@ npm run serve
 ```
 This will build app into the **dist** directory and run it.
 
+**Note** that it will try to look for redis connection on **redis** host. To change that, use **REDIS_HOST** and **REDIS_CUSTOM_PORT** env variables.
+
 If you don't want to pollute your system with any redis servers, you can just run with **docker-compose**:
 ```
 docker-compose up
