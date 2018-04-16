@@ -13,6 +13,5 @@ COPY --from=builder /usr/bin/node /usr/bin
 COPY --from=builder /usr/lib/libgcc* /usr/lib/libstdc* /usr/lib/
 COPY --from=builder /usr/src/page-view-counter-app/dist/ ./
 COPY --from=dependencies /usr/src/page-view-counter-app/node_modules ./node_modules
-RUN CONTAINER_NAME=$(curl http://169.254.169.254/latest/meta-data/instance-id --max-time 3) && export CONTAINER_NAME
 EXPOSE 8080
 CMD node ./index.js
