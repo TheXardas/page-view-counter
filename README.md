@@ -6,6 +6,8 @@ This is just a useless test interview task.
 ## About
 It does one thing: shows **number of page views** for the past 1 minute. Check it out [here](http://page-view-counter-alb-2108592093.us-east-2.elb.amazonaws.com/)
 
+**It is now disabled! Don't want to pay for it! :)**
+
 It also shows **server instance** to check, if **load balancing** works.
 
 There is a lot of devops stuff done in this task, which is not directly connected to it:
